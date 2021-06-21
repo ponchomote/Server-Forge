@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
 # Get all the information about the latest
 get_latest_server() {
-  MC_VERSION=$(curl -s "https://papermc.io/api/v2/projects/paper/" | jq -r -e .versions[-1])
-  LATEST_BUILD=$(curl -s "https://papermc.io/api/v2/projects/paper/versions/$MC_VERSION" | jq -r -e .builds[-1])
-  SERVER_JAR_FILENAME=$(curl -s "https://papermc.io/api/v2/projects/paper/versions/$MC_VERSION/builds/$LATEST_BUILD/" | jq -r -e .downloads.application.name)
-  SERVER_JAR_SHA256=$(curl -s "https://papermc.io/api/v2/projects/paper/versions/$MC_VERSION/builds/$LATEST_BUILD/" | jq -r -e .downloads.application.sha256)
-  SERVER_JAR_URL="https://papermc.io/api/v2/projects/paper/versions/$MC_VERSION/builds/$LATEST_BUILD/downloads/$SERVER_JAR_FILENAME"
+  MC_VERSION= "1.16.5"
+  LATEST_BUILD="36.1.0"
+  SERVER_JAR_FILENAME="forge-1.16.5-36.1.0-installer"
+  SERVER_JAR_SHA256="df8d24bc40eaea1d38525e46f4bc9c0f3f2516ca"
+  SERVER_JAR_URL="https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.5-36.1.0/forge-1.16.5-36.1.0-installer.jar"
 
   printf "%s\n" "Downloading $MC_VERSION build $LATEST_BUILD..."
 
-  echo "$SERVER_JAR_SHA256 paper.jar" > papersha256.txt
-  wget --quiet -O paper.jar -T 60 $SERVER_JAR_URL
+  echo "$SERVER_JAR_SHA256 forge-1.16.5-36.1.0.jar" > papersha256.txt
+  wget --quiet -O forge-1.16.5-36.1.0.jar -T 60 $SERVER_JAR_URL
 }
 
 # Wait for working internet access here
@@ -26,11 +26,11 @@ if [[ -z "$DEVICE_HOSTNAME" ]]; then
 fi
 
 if [[ -z "$JAR_FILE" ]]; then
-  JAR_FILE="paper.jar"
+  JAR_FILE="forge-1.16.5-36.1.0.jar"
 fi
 
 if [[ -z "$RAM" ]]; then
-  RAM="1G"
+  RAM="8G"
 fi
 
 printf "%s\n" "Setting device hostname to: $DEVICE_HOSTNAME"
@@ -57,7 +57,7 @@ if [[ -z "$ENABLE_UPDATE" ]]; then
 
   printf "%s" "Checking server JAR... "
   # Check to see if we have a server jar, and if we do, is it valid?
-  if [[ ! -e "paper.jar" ]]; then
+  if [[ ! -e "forge-1.16.5-36.1.0.jar" ]]; then
     printf "%s\n" "No server JAR found."
     get_latest_server
   fi
