@@ -86,7 +86,7 @@ cd /usr/src/serverfiles/
 
 # Do that forever
 printf "%s\n" "Starting JAR file with: $RAM of RAM"
-java -Xms$RAM -Xmx$RAM -jar forge-1.16.5-36.1.0.jar --nogui
+java -Xms$RAM -Xmx$RAM -jar forge-1.16.5-36.1.0.jar -nogui
 
 # Don´t overload the server if the start fails 
 sleep 10
