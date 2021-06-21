@@ -1,6 +1,6 @@
 ![Balena Server Logo](images/logo.png)
 
-# Minecraft Server
+# This is a Copy for Minecraft Server AlexProgrammerDE
 **Starter project enabling you a Minecraft Server using just a Raspberry Pi 4 or Jetson Nano.**
 
 This project has been tested on a Raspberry Pi 4 B 4GB & Nvidia Jetson Nano. I do not recommend using a Raspberry Pi 3 or older. They have not enough RAM and power to calculate all the things. :boom:
