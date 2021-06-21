@@ -13,15 +13,15 @@ assets:
   repository:
     type: blob.asset
     data:
-      url: 'https://github.com/AlexProgrammerDE/balena-minecraft-server'
+      url: 'https://github.com/ponchomote/Server-Forge'
   logo:
     type: blob.asset
     data:
       url: >-
-        https://raw.githubusercontent.com/AlexProgrammerDE/balena-minecraft-server/master/logo.png
+        https://github.com/ponchomote/Server-Forge/master/logo.png
 data:
   applicationEnvironmentVariables:
-    - RAM: 1G
+    - RAM: 8G
   defaultDeviceType: raspberrypi4-64
   supportedDeviceTypes:
     - raspberrypi4-64
